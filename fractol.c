@@ -17,8 +17,8 @@ static void	ft_mandelbrot_vs_julia(t_complex *z, t_complex *c, t_fractol *data)
 {
 	if (!ft_strcmp(data->name, "Julia"))
 	{
-		c->x = data->julia.x;
-		c->y = data->julia.y;
+		c->x = data->julia_x;
+		c->y = data->julia_y;
 	}
 	else
 	{
@@ -36,7 +36,7 @@ static void	ft_pixels(int x, int y, t_fractol *data)
 
 	i = 0;
     z.x = (ft_scale_map(x, -2, +2, 0, WIDTH) * data->zoom) + data->shift_x;
-	z.y = (ft_scale_map(y, -2, +2, 0, HEIGHT) * data->zoom) + data->shift_y;
+	z.y = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom) + data->shift_y;
 	ft_mandelbrot_vs_julia(&z, &c, data);
 	while(i < data->iterate_max)
 	{
@@ -47,7 +47,7 @@ static void	ft_pixels(int x, int y, t_fractol *data)
 			ft_mlx_pixel_put(&data, x, y, color);
 			return ;
 		}
-		i++;
+		++i;
 	}
 	ft_mlx_pixel_put(&data, x, y, PASTEL_PURPLE);
 }

@@ -31,7 +31,7 @@ void	ft_init_mlx(t_fractol *data)
 	}
 	data->pixels = mlx_get_data_addr(data->image, &data->bpp, &data->line_len,
 			&data->endian);
-	ft_events(data);
+	ft_events_mlx(data);
 	ft_init_data(data);
 }
 

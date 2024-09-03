@@ -4,11 +4,14 @@ int main(int ac, char **av)
 {
     t_fractol fractol;
 
-    if (ac == 2 && !ft_strcmp(av[1], "Mandelbrot") || ac == 4 && !ft_strcmp(av[1], "Julia"))
+    if ((ac == 2 && !ft_strcmp(av[1], "Mandelbrot")) || (ac == 4 && !ft_strcmp(av[1], "Julia")))
     {
         fractol.name = av[1];
-        fractol->julia_x = ft_atof(av[2]);
-		fractol->julia_y = ft_atof(av[3]);
+        if (!ft_strcmp(fractol.name, "julia"))
+        {
+            fractol->julia_x = ft_atof(av[2]);
+		    fractol->julia_y = ft_atof(av[3]);
+        }
         ft_init_mlx(&fractol);
         ft_fractol(&fractol);
 	    mlx_loop(fractol.mlx);

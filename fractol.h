@@ -63,13 +63,13 @@ void		ft_init_mlx(t_fractol *data);
 ////		      FRACTOL                ////
 double 		ft_scale_map(double num, double new_min, double old_min, double new_max, double old_max);
 static void	ft_mlx_pixel_put(t_fractol *data, int x, int y, int color);
-static void	ft_mandelbrot_vs_julia(t_complex z, t_complex c, t_fractol *data);
+static void	ft_mandelbrot_vs_julia(t_complex *z, t_complex *c, t_fractol *data);
 static void	ft_pixels(int x, int y, t_fractol *data);
 void		ft_fractol(t_fractol *data);
 ////			  EVENTS				////
 int			ft_destroy(t_fractol *data);
 int 		ft_keyboard_hook(int keysym, t_fractol *data);
-int			ft_mouse_hook(int button, t_fractol *data);
+int			ft_mouse_hook(int button, int x, int y, t_fractol *data);
 int			ft_mouse_julia(int x, int y, t_fractol *data);
 static void	ft_events_mlx(t_fractol *data);
 ////				MATH				////
