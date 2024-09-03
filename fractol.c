@@ -5,7 +5,7 @@ double ft_scale_map(double num, double new_min, double old_min, double new_max, 
     return ((new_max - new_min) * (num - old_min) / (old_max - old_min) + new_min);
 }
 
-static void	ft_mlx_pixel_put(t_fractol *data, int x, int y, int color)
+void	ft_mlx_pixel_put(t_fractol *data, int x, int y, int color)
 {
 	char	*dest;
 
@@ -13,7 +13,7 @@ static void	ft_mlx_pixel_put(t_fractol *data, int x, int y, int color)
 	*(unsigned int *)dest = color;
 }
 
-static void	ft_mandelbrot_vs_julia(t_complex *z, t_complex *c, t_fractol *data)
+void	ft_mandelbrot_vs_julia(t_complex *z, t_complex *c, t_fractol *data)
 {
 	if (!ft_strcmp(data->name, "Julia"))
 	{
@@ -27,7 +27,7 @@ static void	ft_mandelbrot_vs_julia(t_complex *z, t_complex *c, t_fractol *data)
 	}
 }
 
-static void	ft_pixels(int x, int y, t_fractol *data)
+void	ft_pixels(int x, int y, t_fractol *data)
 {
 	t_complex z;
    	t_complex c;
@@ -41,7 +41,7 @@ static void	ft_pixels(int x, int y, t_fractol *data)
 	while(i < data->iterate_max)
 	{
 		z = ft_sum_complex(ft_square_complex(z), c);
-		if ((z.x * z.x) + (z.y * z.y) > data->escape_value)
+		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			color = ft_scale_map(i, BLACK, WHITE, 0, data->iterate_max);
 			ft_mlx_pixel_put(&data, x, y, color);

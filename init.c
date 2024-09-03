@@ -1,8 +1,7 @@
 #include "fractol.h"
 
-static void	ft_init_data(t_fractol *data)
+void	ft_init_data(t_fractol *data)
 {
-	data->escape_value = 4;
 	data->iterate_max = 42;
 	data->shift_x = 0.0;
 	data->shift_y = 0.0;
