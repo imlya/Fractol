@@ -6,10 +6,10 @@ void	ft_init_data(t_fractol *data)
 	data->shift_x = 0.0;
 	data->shift_y = 0.0;
 	data->zoom = 1.0;
-	data->min_x = -2;
-	data->max_x = 2;
-	data->min_y = 2;
-	data->max_y = -2;
+	// data->min_x = -2;
+	// data->max_x = 2;
+	// data->min_y = 2;
+	// data->max_y = -2;
 }
 
 void	ft_init_mlx(t_fractol *data)

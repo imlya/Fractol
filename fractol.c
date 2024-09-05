@@ -55,7 +55,7 @@ void	ft_pixels(int x, int y, t_fractol *data)
 		}
 		++i;
 	}
-	ft_mlx_pixel_put(data, x, y, PASTEL_LAVENDER);
+	ft_mlx_pixel_put(data, x, y, PURPLE);
 }
 
 void	ft_fractol(t_fractol *data)

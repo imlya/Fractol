@@ -63,10 +63,10 @@ typedef struct s_fractol
 	double	zoom;
 	double	julia_x;
 	double	julia_y;
-	double	min_y;
-	double	min_x;
-	double	max_y;
-	double	max_x;
+	// double	min_y;
+	// double	min_x;
+	// double	max_y;
+	// double	max_x;
 }			t_fractol;
 
 ////				INIT				////

@@ -1,11 +1,11 @@
 #include "fractol.h"
 
-t_complex	ft_sum_complex(t_complex z1, t_complex z2)
+t_complex	ft_sum_complex(t_complex z, t_complex c)
 {
 	t_complex	sum;
 
-	sum.x = z1.x + z2.x;
-	sum.y = z1.y + z2.y;
+	sum.x = z.x + c.x;
+	sum.y = z.y + c.y;
 	return (sum);
 }
 
