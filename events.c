@@ -28,14 +28,14 @@ int	ft_keyboard_hook(int keysym, t_fractol *data)
 {
 	if (keysym == XK_Escape)
 		ft_destroy(data);
-	else if (keysym == XK_Left)
-		data->shift_x += (0.5 * data->zoom);
-	else if (keysym == XK_Right)
-		data->shift_x -= (0.5 * data->zoom);
-	else if (keysym == XK_Up)
-		data->shift_y -= (0.5 * data->zoom);
+	if (keysym == XK_Up)
+		data->center_y -= (0.5 * data->zoom);
 	else if (keysym == XK_Down)
-		data->shift_y += (0.5 * data->zoom);
+		data->center_y += (0.5 * data->zoom);
+	else if (keysym == XK_Right)
+		data->center_x += (0.5 * data->zoom);
+	else if (keysym == XK_Left)
+		data->center_x -= (0.5 * data->zoom);
 	else if (keysym == 65451)
 		data->iterate_max += 10;
 	else if (keysym == 65453)
@@ -65,20 +65,18 @@ int	ft_mouse_julia(int x, int y, t_fractol *data)
 	if (!ft_strcmp(data->name, "Julia"))
 	{
 		data->julia_x = (ft_scale_map(x, -2, +2, 0, WIDTH) * data->zoom)
-			+ data->shift_x;
+			+ data->center_x;
 		data->julia_y = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom)
-			+ data->shift_y;
+			+ data->center_y;
 		ft_fractol(data);
 	}
 	return (0);
 }
 
-void	ft_events_mlx(t_fractol *data)
+static void	ft_events_mlx(t_fractol *data)
 {
+	mlx_hook(data->window, DestroyNotify, StructureNotifyMask, ft_destroy, data);
 	mlx_hook(data->window, KeyPress, KeyPressMask, ft_keyboard_hook, data);
 	mlx_hook(data->window, ButtonPress, ButtonPressMask, ft_mouse_hook, data);
-	mlx_hook(data->window, DestroyNotify, StructureNotifyMask, ft_destroy,
-		data);
-	mlx_hook(data->window, MotionNotify, PointerMotionMask, ft_mouse_julia,
-		data);
+	mlx_hook(data->window, MotionNotify, PointerMotionMask, ft_mouse_julia, data);
 }

@@ -9,7 +9,7 @@ int	main(int ac, char **av)
 	{
 		fractol = ft_calloc(1, sizeof(t_fractol));
 		fractol->name = av[1];
-		if (ac == 4 && !ft_strcmp(av[1], "Julia"))
+		if (ac == 4 && !ft_strcmp(fractol->name, "Julia"))
 		{
 			fractol->julia_x = ft_atof(av[2]);
 			fractol->julia_y = ft_atof(av[3]);
@@ -24,5 +24,5 @@ int	main(int ac, char **av)
 			2);
 		exit(EXIT_FAILURE);
 	}
-	return (0);
+	//return (0);
 }

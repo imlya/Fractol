@@ -1,10 +1,10 @@
 #include "fractol.h"
 
-void	ft_init_data(t_fractol *data)
+static void	ft_init_data(t_fractol *data)
 {
-	data->iterate_max = 42;
-	data->shift_x = 0.0;
-	data->shift_y = 0.0;
+	data->iterate_max = 50;
+	data->center_x = 0.0;
+	data->center_y = 0.0;
 	data->zoom = 1.0;
 	// data->min_x = -2;
 	// data->max_x = 2;

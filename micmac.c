@@ -23,8 +23,8 @@ void	ft_pixels(int x, int y, t_fractol *data)
 	// int			i;
 	// int			color;
 	i = 0;
-	z.x = (ft_scale_map(x, -2, +2, 0, WIDTH) * data->zoom) + data->shift_x;
-	z.y = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom) + data->shift_y;
+	z.x = (ft_scale_map(x, -2, +2, 0, WIDTH) * data->zoom) + data->center_x;
+	z.y = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom) + data->center_y;
 	ft_mandelbrot_vs_julia(&z, &c, data);
 	while (i < data->iterate_max)
 	{
