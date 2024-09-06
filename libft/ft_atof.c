@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:47:56 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/04 12:30:32 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/06 12:14:10 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 double	ft_atof(const char *str)
 {
-	int len;
+	int		len;
 	double	res;
 	double	fraction;
-
 
 	len = 0;
 	res = (double)ft_atoi(str);

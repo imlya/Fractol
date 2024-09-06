@@ -1,15 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:11:39 by imatek            #+#    #+#             */
+/*   Updated: 2024/09/06 14:34:07 by imatek           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-static void	ft_init_data(t_fractol *data)
+void	ft_init_data(t_fractol *data)
 {
 	data->iterate_max = 50;
-	data->center_x = 0.0;
-	data->center_y = 0.0;
+	data->center_x = 0.5;
+	data->center_y = -1.0;
 	data->zoom = 1.0;
-	// data->min_x = -2;
-	// data->max_x = 2;
-	// data->min_y = 2;
-	// data->max_y = -2;
 }
 
 void	ft_init_mlx(t_fractol *data)
@@ -37,5 +45,3 @@ void	ft_init_mlx(t_fractol *data)
 	ft_events_mlx(data);
 	ft_init_data(data);
 }
-
-// FAIRE UN VALGRIND AVEC X ET ESC

@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:59:14 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/05 18:55:11 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/06 14:54:02 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	ft_keyboard_hook(int keysym, t_fractol *data)
 	if (keysym == XK_Escape)
 		ft_destroy(data);
 	if (keysym == XK_Up)
-		data->center_y -= (0.5 * data->zoom);
-	else if (keysym == XK_Down)
 		data->center_y += (0.5 * data->zoom);
+	else if (keysym == XK_Down)
+		data->center_y -= (0.5 * data->zoom);
 	else if (keysym == XK_Right)
 		data->center_x += (0.5 * data->zoom);
 	else if (keysym == XK_Left)
@@ -48,13 +48,17 @@ int	ft_mouse_hook(int button, int x, int y, t_fractol *data)
 {
 	(void)x;
 	(void)y;
-	if (button == Button5)
+	if (button == Button4)
+	{
+		data->zoom *= 1.3;
+		// data->center_x += (x - WIDTH / 2) / (WIDTH * data->zoom);
+		// data->center_y += (y - WIDTH / 2) / (WIDTH * data->zoom);
+	}
+	else if (button == Button5)
 	{
 		data->zoom *= 0.95;
-	}
-	else if (button == Button4)
-	{
-		data->zoom *= 1.05;
+		// data->center_x -= ((x - WIDTH / 2) / WIDTH)* data->zoom;
+		// data->center_y -= ((y - WIDTH / 2) / WIDTH)* data->zoom;
 	}
 	ft_fractol(data);
 	return (0);
@@ -68,15 +72,24 @@ int	ft_mouse_julia(int x, int y, t_fractol *data)
 			+ data->center_x;
 		data->julia_y = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom)
 			+ data->center_y;
-		ft_fractol(data);
 	}
+	ft_fractol(data);
 	return (0);
 }
 
-static void	ft_events_mlx(t_fractol *data)
+void	ft_events_mlx(t_fractol *data)
 {
-	mlx_hook(data->window, DestroyNotify, StructureNotifyMask, ft_destroy, data);
+	mlx_hook(data->window, DestroyNotify, StructureNotifyMask, ft_destroy,
+		data);
 	mlx_hook(data->window, KeyPress, KeyPressMask, ft_keyboard_hook, data);
 	mlx_hook(data->window, ButtonPress, ButtonPressMask, ft_mouse_hook, data);
-	mlx_hook(data->window, MotionNotify, PointerMotionMask, ft_mouse_julia, data);
+	mlx_hook(data->window, MotionNotify, PointerMotionMask, ft_mouse_julia,
+		data);
 }
+
+
+// A Revoir :
+// - motion ft_mouse_julia
+// - zoom souris
+// - events apres ft_mouse_julia
+// - bug clique souris

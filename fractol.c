@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:11:27 by imatek            #+#    #+#             */
+/*   Updated: 2024/09/06 14:14:19 by imatek           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 double	ft_scale_map(double num, double new_min, double old_min, double new_max,
@@ -38,10 +50,6 @@ void	ft_pixels(int x, int y, t_fractol *data)
 
 	i = 0;
 	z.x = (ft_scale_map(x, -2, +2, 0, WIDTH) * data->zoom) + data->center_x;
-	// z.x = data->min_x + (x / (double)WIDTH) * (data->max_x
-	// 		- data->min_x) / data->zoom + data->center_x;
-	// z.y = data->min_y + (y / (double)HEIGHT) * (data->max_y
-			// - data->min_y) / data->zoom + data->center_y;
 	z.y = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom) + data->center_y;
 	ft_mandelbrot_vs_julia(&z, &c, data);
 	while (i < data->iterate_max)
@@ -49,13 +57,13 @@ void	ft_pixels(int x, int y, t_fractol *data)
 		z = ft_sum_complex(ft_square_complex(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
-			color = ft_scale_map(i, BLACK, WHITE, 0, data->iterate_max);
+			color = ft_scale_map(i, PASTEL_TEAL, BLUE, 0, data->iterate_max);
 			ft_mlx_pixel_put(data, x, y, color);
 			return ;
 		}
 		++i;
 	}
-	ft_mlx_pixel_put(data, x, y, PURPLE);
+	ft_mlx_pixel_put(data, x, y, PASTEL_PURPLE);
 }
 
 void	ft_fractol(t_fractol *data)

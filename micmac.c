@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   micmac.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:11:52 by imatek            #+#    #+#             */
+/*   Updated: 2024/09/06 12:13:49 by imatek           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_pixels(int x, int y, t_fractol *data)
 {
@@ -18,8 +29,8 @@ void	ft_pixels(int x, int y, t_fractol *data)
 // void	ft_pixels(int x, int y, t_fractol *data)
 {
 	t_complex	z;
-	// t_complex	c;
 
+	// t_complex	c;
 	// int			i;
 	// int			color;
 	i = 0;
@@ -47,5 +58,5 @@ double	ft_scale_map(double num, double new_min, double old_min, double new_max,
 		+ new_min);
 }
 
-c.x = data->min_real + (x / (double)WIDTH) * (data->max_real
-			- data->min_real) / data->zoom + data->center_x;
+c.x = data->min_real + (x / (double)WIDTH) * (data->max_real - data->min_real)
+	/ data->zoom + data->center_x;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:11:34 by imatek            #+#    #+#             */
+/*   Updated: 2024/09/06 14:06:37 by imatek           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -7,8 +19,8 @@
 # include <X11/keysym.h>
 # include <math.h>
 
-# define WIDTH 900
-# define HEIGHT 900
+# define WIDTH 800
+# define HEIGHT 800
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
@@ -38,35 +50,22 @@ typedef struct s_complex
 	double	y;
 }			t_complex;
 
-// typedef struct s_scale
-// {
-// 	double	num;
-// 	double	new_min;
-// 	double	old_min;
-// 	double	new_max;
-// 	double	old_max;
-// }			t_scale;
-
 typedef struct s_fractol
 {
 	char	*name;
 	void	*mlx;
 	void	*window;
-	void *image;  // Pointeur vers l'image.
-	char *pixels; // Adresse des données de l'image.
-	int bpp;      // Nombre de bits utilisés pour représenter un pixel.
-	int line_len; // Nombre de caractères dans une ligne de l'image.
-	int endian;   // Format de stockage des couleurs (Big ou Little Endian).
+	void	*image;  // Pointeur vers l'image.
+	char	*pixels; // Adresse des données de l'image.
+	int		bpp;      // Nombre de bits utilisés pour représenter un pixel.
+	int		line_len; // Nombre de caractères dans une ligne de l'image.
+	int		endian;   // Format de stockage des couleurs (Big ou Little Endian).
 	int		iterate_max;
 	double	center_x;
 	double	center_y;
 	double	zoom;
 	double	julia_x;
 	double	julia_y;
-	// double	min_y;
-	// double	min_x;
-	// double	max_y;
-	// double	max_x;
 }			t_fractol;
 
 ////				INIT				////
@@ -84,7 +83,7 @@ int			ft_destroy(t_fractol *data);
 int			ft_keyboard_hook(int keysym, t_fractol *data);
 int			ft_mouse_hook(int button, int x, int y, t_fractol *data);
 int			ft_mouse_julia(int x, int y, t_fractol *data);
-static void		ft_events_mlx(t_fractol *data);
+void		ft_events_mlx(t_fractol *data);
 ////				MATH				////
 t_complex	ft_sum_complex(t_complex z1, t_complex z2);
 t_complex	ft_square_complex(t_complex z);
