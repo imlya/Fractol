@@ -29,3 +29,19 @@ t_complex	ft_square_complex(t_complex z)
 	square.y = 2 * z.x * z.y;
 	return (square);
 }
+
+// double	ft_abs(double nb)
+// {
+// 	if (nb < 0.0)
+// 		nb *= -1;
+// 	return (nb);
+// }
+
+// t_complex	ft_remarkable(t_complex z)
+// {
+// 	t_complex	result;
+
+// 	result.x = z.x * z.x - z.y * z.y;
+// 	result.y = (-2) * (z.x) * ft_abs(z.y);
+// 	return (result);
+// }

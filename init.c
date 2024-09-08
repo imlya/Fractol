@@ -18,6 +18,7 @@ void	ft_init_data(t_fractol *data)
 	data->center_x = 0.5;
 	data->center_y = -1.0;
 	data->zoom = 1.0;
+	// data->colors = 0;
 }
 
 void	ft_init_mlx(t_fractol *data)
@@ -26,7 +27,7 @@ void	ft_init_mlx(t_fractol *data)
 	if (!data->mlx)
 	{
 		ft_putendl_fd("mlx_init failed", 2);
-		exit(1);
+		exit(EXIT_FAILURE); //???
 	}
 	data->window = mlx_new_window(data->mlx, WIDTH, HEIGHT, data->name);
 	if (!data->window)

@@ -40,6 +40,8 @@ int	ft_keyboard_hook(int keysym, t_fractol *data)
 		data->iterate_max += 10;
 	else if (keysym == 65453)
 		data->iterate_max -= 10;
+	// else if (keysym == 32)
+	// 	data->colors += 20;
 	ft_fractol(data);
 	return (0);
 }
@@ -50,15 +52,15 @@ int	ft_mouse_hook(int button, int x, int y, t_fractol *data)
 	(void)y;
 	if (button == Button4)
 	{
-		data->zoom *= 1.3;
 		// data->center_x += (x - WIDTH / 2) / (WIDTH * data->zoom);
 		// data->center_y += (y - WIDTH / 2) / (WIDTH * data->zoom);
+		data->zoom *= 1.05; // *= 1.1;
 	}
 	else if (button == Button5)
 	{
-		data->zoom *= 0.95;
 		// data->center_x -= ((x - WIDTH / 2) / WIDTH)* data->zoom;
 		// data->center_y -= ((y - WIDTH / 2) / WIDTH)* data->zoom;
+		data->zoom *= 0.95;  // /= 1.3;
 	}
 	ft_fractol(data);
 	return (0);
@@ -68,12 +70,12 @@ int	ft_mouse_julia(int x, int y, t_fractol *data)
 {
 	if (!ft_strcmp(data->name, "Julia"))
 	{
-		data->julia_x = (ft_scale_map(x, -2, +2, 0, WIDTH) * data->zoom)
+		data->real = (ft_scale_map(x, -2, +2, 0, WIDTH) * data->zoom)
 			+ data->center_x;
-		data->julia_y = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom)
+		data->i = (ft_scale_map(y, +2, -2, 0, HEIGHT) * data->zoom)
 			+ data->center_y;
+		ft_fractol(data);
 	}
-	ft_fractol(data);
 	return (0);
 }
 
@@ -93,3 +95,8 @@ void	ft_events_mlx(t_fractol *data)
 // - zoom souris
 // - events apres ft_mouse_julia
 // - bug clique souris
+
+// les diff
+// 	 => fonctions en static
+// 	 => malloc error ?
+// 	 remplacer old_min par 0 pour avoir 4 arguments seulement dans le scale ??
