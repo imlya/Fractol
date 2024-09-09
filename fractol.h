@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:11:34 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/06 14:06:37 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/09 11:42:46 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,12 @@ typedef struct s_fractol
 	char	*name;
 	void	*mlx;
 	void	*window;
-	void	*image;  // Pointeur vers l'image.
-	char	*pixels; // Adresse des données de l'image.
-	int		bpp;      // Nombre de bits utilisés pour représenter un pixel.
-	int		line_len; // Nombre de caractères dans une ligne de l'image.
-	int		endian;   // Format de stockage des couleurs (Big ou Little Endian).
+	void	*image;
+	char	*pixels;
+	int		bpp;
+	int		line_len;
+	int		endian;
 	int		iterate_max;
-	int 	colors;
 	double	center_x;
 	double	center_y;
 	double	zoom;
@@ -73,10 +72,8 @@ typedef struct s_fractol
 void		ft_init_data(t_fractol *data);
 void		ft_init_mlx(t_fractol *data);
 ////				FRACTOL                ////
-double		ft_scale_map(double num, double new_min, double old_min,
-				double new_max, double old_max);
-void		ft_mlx_pixel_put(t_fractol *data, int x, int y, int color);
-void		ft_select_fractal(t_complex *z, t_complex *c, t_fractol *data);
+double		ft_scale_map(double num, double new_min, double new_max,
+				double old_max);
 void		ft_pixels(int x, int y, t_fractol *data);
 void		ft_fractol(t_fractol *data);
 ////				EVENTS				////
@@ -87,6 +84,6 @@ int			ft_mouse_julia(int x, int y, t_fractol *data);
 void		ft_events_mlx(t_fractol *data);
 ////				MATH				////
 t_complex	ft_sum_complex(t_complex z1, t_complex z2);
-t_complex	ft_square_complex(t_complex z);
-void ft_error_message(void);
+t_complex	ft_square_complex(t_complex z, t_fractol *fractal);
+void		ft_error_message(void);
 #endif

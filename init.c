@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:11:39 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/06 14:34:07 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:40:40 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	ft_init_data(t_fractol *data)
 {
-	data->iterate_max = 50;
-	data->center_x = 0.5;
-	data->center_y = -1.0;
+	data->iterate_max = 42;
+	data->center_x = 0.0;
+	data->center_y = 0.0;
 	data->zoom = 1.0;
-	// data->colors = 0;
 }
 
 void	ft_init_mlx(t_fractol *data)
@@ -27,7 +26,7 @@ void	ft_init_mlx(t_fractol *data)
 	if (!data->mlx)
 	{
 		ft_putendl_fd("mlx_init failed", 2);
-		exit(EXIT_FAILURE); //???
+		exit(EXIT_FAILURE);
 	}
 	data->window = mlx_new_window(data->mlx, WIDTH, HEIGHT, data->name);
 	if (!data->window)

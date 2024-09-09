@@ -6,13 +6,13 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:47:56 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/06 12:14:10 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:24:12 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double	ft_atof(const char *str)
+double	ft_atod(const char *str)
 {
 	int		len;
 	double	res;

@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:26:44 by imatek            #+#    #+#             */
-/*   Updated: 2024/08/22 15:16:35 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:24:20 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-double	ft_atof(const char *nptr);
+double	ft_atod(const char *nptr);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
