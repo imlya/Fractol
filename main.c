@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:11:43 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/09 13:24:32 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/09 14:10:40 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 
 	fractol.name = av[1];
 	if ((ac == 2 && (!ft_strcmp(av[1], "Mandelbrot")
-			|| !ft_strcmp("Burning bird", fractol.name))) || (ac == 4
+				|| !ft_strcmp("Burning bird", fractol.name))) || (ac == 4
 			&& !ft_strcmp(av[1], "Julia")))
 	{
 		if (!ft_strcmp(fractol.name, "Julia"))
