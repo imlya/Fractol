@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:11:27 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/09 11:42:59 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/11 11:47:59 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 double	ft_scale_map(double num, double new_min, double new_max, double old_max)
 {
-	return ((new_max - new_min) * (num - 0) / (old_max - 0) + new_min);
+	return (((new_max - new_min) * num) / old_max + new_min);
 }
 
 static void	ft_mlx_pixel_put(t_fractol *data, int x, int y, int color)

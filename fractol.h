@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:11:34 by imatek            #+#    #+#             */
-/*   Updated: 2024/09/09 11:42:46 by imatek           ###   ########.fr       */
+/*   Updated: 2024/09/11 11:42:39 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <X11/keysym.h>
 # include <math.h>
 
-# define WIDTH 900
-# define HEIGHT 900
+# define WIDTH 800
+# define HEIGHT 800
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
